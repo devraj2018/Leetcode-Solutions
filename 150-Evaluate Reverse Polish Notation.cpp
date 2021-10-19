@@ -25,7 +25,6 @@ public:
                 else s.push(a/b);
              
          }
-        return s.top();
-       
+        return s.top();  
     }
 };
