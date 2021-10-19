@@ -22,8 +22,7 @@ public:
                 if(x=="+") s.push(a+b);
                 else if(x=="-") s.push(a-b);
                 else if(x=="*") s.push(a*b);
-                else s.push(a/b);
-             
+                else s.push(a/b);    
          }
         return s.top();  
     }
