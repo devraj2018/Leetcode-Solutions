@@ -1,0 +1,84 @@
+#include<bits/stdc++.h>
+using namespace std;
+class queu{
+    public:
+    int front,rear,size;
+    vector<int> arr;
+    queu(int maxx)
+    { front=-1;rear=-1;size=maxx;
+     arr.resize(maxx);
+    }
+    bool isEmpty()
+    {
+        if(front==-1 && rear==-1)
+            return true;
+        return false;
+    }
+     bool isFull()
+    {
+        if(front==(rear+1)%size)
+            return true;
+        return false;
+    }
+    void push(int x)
+    {  if(isFull())
+       {
+         cout<<"Overflow"<<x<<endl;
+          return;
+       }
+     if(isEmpty())
+     {
+        arr[0]=x;
+        front=0;
+        rear=0;
+     }
+     else
+     {
+         arr[(rear+1)%size]=x;
+         rear=(rear+1)%size;
+     }
+      
+        
+    }
+    int pop()
+    {   if(isEmpty())
+         {
+        cout<<"underflow"<<endl;
+        return -1;
+         }
+      int x;
+     if(front==rear)
+     {
+         x=arr[front];
+         front=-1;
+         rear=-1;
+         return x;
+     }
+     x=arr[front];
+     front=(front+1)%size;
+     return x;
+        
+    }
+};
+int main() {
+    std::cout << "Hello World!\n";
+    queu q(5);
+    cout<<q.isEmpty()<<endl;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+    q.push(5);
+    q.push(6);
+     cout<<q.isFull()<<endl;
+    cout<<q.pop()<<endl;
+    cout<<q.pop()<<endl;
+    cout<<q.pop()<<endl; 
+    cout<<q.pop()<<endl; 
+    cout<<q.pop()<<endl;
+    
+    
+    
+    
+    
+}
